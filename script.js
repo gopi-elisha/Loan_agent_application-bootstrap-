@@ -208,7 +208,7 @@ $(document).ready(function() {
         // prevent click on logout link being treated as nav navigation
         if (href === '#logout') return;
         // if dashboard link is clicked, open in same page or new window depending
-        if (href.includes('dashboard.html') && !e.ctrlKey && !e.metaKey) {
+        if (href.includes('dashboard.html') && !e.ctrlKey && !e.metaKey && $('.page1').length > 0) {
             e.preventDefault();
             // manage active state
             $('a.nav-link').removeClass('active');
@@ -253,4 +253,5 @@ function updateDashboardTable() {
             </tr>
         `);
     }
+
 }
