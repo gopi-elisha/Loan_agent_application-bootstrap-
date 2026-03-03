@@ -164,11 +164,11 @@ $(document).ready(function() {
                         </div>
                         <div class="col-md-4 mb-3">
                             <h6>Total Payment</h6>
-                            <p class="text-success fs-5 fw-bold">₹${totalPayment.toFixed(2)}</p>
+                            <p class="text-primary fs-5 fw-bold">₹${totalPayment.toFixed(2)}</p>
                         </div>
                         <div class="col-md-4 mb-3">
                             <h6>Total Interest</h6>
-                            <p class="text-warning fs-5 fw-bold">₹${totalInterest.toFixed(2)}</p>
+                            <p class="text-primary fs-5 fw-bold">₹${totalInterest.toFixed(2)}</p>
                         </div>
                     </div>
                     
@@ -239,7 +239,7 @@ function updateDashboardTable() {
                 <td>${loan.loanTenure} months</td>
                 <td>₹${parseFloat(loan.monthlyIncome).toLocaleString()}</td>
                 <td>${loan.address}</td>
-                <td><span class="badge bg-success">${loan.status}</span></td>
+                <td><span class="badge bg-primary">${loan.status}</span></td>
             </tr>
         `;
         tbody.append(row);
@@ -255,3 +255,4 @@ function updateDashboardTable() {
     }
 
 }
+
