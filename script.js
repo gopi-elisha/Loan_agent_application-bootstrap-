@@ -97,6 +97,45 @@ $(document).ready(function() {
             return;
         }
 
+        // Validate loan amount (minimum 50000)
+        const loanAmount = parseFloat(loanData.loanAmount);
+        if (isNaN(loanAmount) || loanAmount < 50000) {
+            const errorMsg = `
+                <div class="alert alert-danger alert-dismissible fade show">
+                  Loan amount must be at least ₹50,000
+                  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            `;
+            $('#messageBox').html(errorMsg);
+            return;
+        }
+
+        // Validate phone number (exactly 10 digits)
+        const phonePattern = /^[0-9]{10}$/;
+        if (!phonePattern.test(loanData.phone)) {
+            const errorMsg = `
+                <div class="alert alert-danger alert-dismissible fade show">
+                  Phone number must be exactly 10 digits
+                  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            `;
+            $('#messageBox').html(errorMsg);
+            return;
+        }
+
+        // Validate interest rate (must be a valid number, decimals allowed)
+        const interestRate = parseFloat(loanData.interestRate);
+        if (isNaN(interestRate) || interestRate <= 0) {
+            const errorMsg = `
+                <div class="alert alert-danger alert-dismissible fade show">
+                  Interest rate must be a valid positive number
+                  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            `;
+            $('#messageBox').html(errorMsg);
+            return;
+        }
+
         // Add to loans array
         loans.push(loanData);
         // persist in window.name for navigation within same tab
