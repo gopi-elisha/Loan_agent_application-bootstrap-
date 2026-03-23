@@ -97,6 +97,19 @@ $(document).ready(function() {
             return;
         }
 
+        // Validate name (minimum 3 characters)
+        if (loanData.name.length < 3) {
+            const errorMsg = `
+                <div class="alert alert-danger alert-dismissible fade show">
+                  Applicant name must be at least 3 characters
+                  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            `;
+            $('#messageBox').html(errorMsg);
+            return;
+        }
+
+
         // Validate loan amount (minimum 50000)
         const loanAmount = parseFloat(loanData.loanAmount);
         if (isNaN(loanAmount) || loanAmount < 50000) {
